@@ -1,0 +1,120 @@
+package Scene.Objects;
+
+import Scene.base.SceneObject;
+import base.GraphicsObjects.Point4f;
+import base.GraphicsObjects.Vector4f;
+import base.objects3D.DisplayListTexCube;
+import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.opengl.Texture;
+
+import java.util.HashMap;
+
+import static org.lwjgl.opengl.GL11.GL_NEAREST;
+import static org.lwjgl.opengl.GL11.GL_TEXTURE_MIN_FILTER;
+
+
+public class Door extends SceneObject {
+
+    DisplayListTexCube cube1 = new DisplayListTexCube();
+
+    public Door(Point4f origin, Point4f position, Vector4f scale) {
+        super(origin, position, scale);
+    }
+
+    public Door(Point4f origin, Point4f position, Vector4f scale, HashMap<String, Texture> textures) {
+        super(origin, position, scale, textures);
+    }
+
+
+    @Override
+    public void draw(Integer frame_delta) {
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL11.GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        GL11.glTexParameteri(GL11.GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+        Color.white.bind();
+        getTextures().get("blood").bind();
+        cube1.DrawTexCube();
+        //TNT
+        GL11.glPushMatrix();
+        {
+            //go up
+            GL11.glTranslatef(0, 2f, 0);
+            cube1.DrawTexCube();
+            GL11.glPushMatrix();
+            {
+                GL11.glTranslatef(0, 2f, 0);
+                cube1.DrawTexCube();
+                GL11.glPushMatrix();
+                {
+                    GL11.glTranslatef(0, 2f, 0);
+                    cube1.DrawTexCube();
+                    GL11.glPushMatrix();
+                    {
+                        GL11.glTranslatef(0, 2f, 0);
+                        cube1.DrawTexCube();
+                        GL11.glPushMatrix();
+                        {
+                            //right(top TNTs)
+                            GL11.glTranslatef(2f, 0f, 0);
+                            cube1.DrawTexCube();
+                            GL11.glPushMatrix();
+                            {
+                                GL11.glTranslatef(2f, 0f, 0);
+                                cube1.DrawTexCube();
+                                GL11.glPushMatrix();
+                                {
+                                    GL11.glTranslatef(2f, 0f, 0);
+                                    cube1.DrawTexCube();
+                                    GL11.glPushMatrix();
+                                    {
+                                        GL11.glTranslatef(2f, 0f, 0);
+                                        cube1.DrawTexCube();
+                                        GL11.glPushMatrix();
+                                        {
+                                            //go down
+                                            GL11.glTranslatef(0f, -2f, 0);
+                                            cube1.DrawTexCube();
+                                            GL11.glPushMatrix();
+                                            {
+                                                GL11.glTranslatef(0f, -2f, 0);
+                                                cube1.DrawTexCube();
+                                                GL11.glPushMatrix();
+                                                {
+                                                    GL11.glTranslatef(0f, -2f, 0);
+                                                    cube1.DrawTexCube();
+                                                    GL11.glPushMatrix();
+                                                    {
+                                                        GL11.glTranslatef(0f, -2f, 0);
+                                                        cube1.DrawTexCube();
+                                                    }
+                                                    GL11.glPopMatrix();
+                                                }
+                                                GL11.glPopMatrix();
+                                            }
+                                            GL11.glPopMatrix();
+                                        }
+                                        GL11.glPopMatrix();
+                                    }
+                                    GL11.glPopMatrix();
+                                }
+                                GL11.glPopMatrix();
+                            }
+                            GL11.glPopMatrix();
+                        }
+                    }
+                    GL11.glPopMatrix();
+                }
+                GL11.glPopMatrix();
+            }
+            GL11.glPopMatrix();
+        }
+        GL11.glPopMatrix();
+        GL11.glPopMatrix();
+
+    }
+
+    @Override
+    public void drawShadow() {
+
+    }
+}
