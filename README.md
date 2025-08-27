@@ -1,5 +1,5 @@
 # Computer-graphic-Animated-Scene
-Create an animated scene using OpenGL. This project was completed in December 2024.
+Create an animated scene using OpenGL. This project was completed in December 2024. The video showing this project can be seen via this link (since it's too big to upload): https://youtu.be/wr2psis301c
 
 This project is inspired by the movie "Silence Hill".
 
